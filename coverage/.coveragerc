@@ -1,0 +1,9 @@
+[run]
+branch = True
+data_file = coverage/.coverage
+include =
+    ../django_venv/Lib/site-packages/wagtail/*
+[html]
+directory = coverage/htmlcov
+[json]
+output = coverage/coverage.json
