@@ -7,7 +7,7 @@ from django.http import JsonResponse
 
 def index(request):
     report_coverage()
-    return JsonResponse(read_json('coverage/coverage.json'))
+    return JsonResponse(read_json('coverage_app/coverage_data/coverage.json'))
 
 
 def reset(request):

@@ -8,7 +8,7 @@ https://docs.djangoproject.com/en/3.1/howto/deployment/wsgi/
 """
 ###########
 import coverage, atexit
-cov = coverage.Coverage(config_file='coverage/.coveragerc')
+cov = coverage.Coverage(config_file='coverage_app/coverage_data/.coveragerc')
 cov.start()
 ###########
 import os
@@ -20,11 +20,10 @@ os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'mysite.settings')
 application = get_wsgi_application()
 
 ###########
-# def save_coverage():
-#     cov.stop()
-#     cov.save()
+def save_coverage():
+    cov.stop()
 #     cov.html_report()
 #     cov.json_report()
 
-# atexit.register(save_coverage)
+atexit.register(save_coverage)
 ###########
