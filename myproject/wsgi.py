@@ -22,6 +22,7 @@ application = get_wsgi_application()
 ###########
 # def save_coverage():
 #     cov.stop()
+#     cov.save()
 #     cov.html_report()
 #     cov.json_report()
 
