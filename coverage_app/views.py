@@ -1,13 +1,20 @@
 import json
 import coverage
-from myproject.wsgi import cov
-# from django.http import HttpResponse
+from wagtail_test.wsgi import cov
+from django.http import HttpResponse
 from django.http import JsonResponse
 
+from django.views.static import serve
+import os
+# filepath = 'coverage_app/coverage_data/htmlcov/'
 
 def index(request):
     report_coverage()
     return JsonResponse(read_json('coverage_app/coverage_data/coverage.json'))
+
+
+# def index(request):
+#     return serve(request, os.path.basename(filepath), os.path.dirname(filepath), show_indexes=True)
 
 
 def reset(request):
