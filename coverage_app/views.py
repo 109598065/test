@@ -6,15 +6,14 @@ from django.http import JsonResponse
 
 from django.views.static import serve
 import os
-# filepath = 'coverage_app/coverage_data/htmlcov/'
+filepath = 'coverage_app/coverage_data/htmlcov/'
 
 def index(request):
+    return serve(request, os.path.basename(filepath + '/index.html'), os.path.dirname(filepath), show_indexes=True)
+
+def object(request):
     report_coverage()
     return JsonResponse(read_json('coverage_app/coverage_data/coverage.json'))
-
-
-# def index(request):
-#     return serve(request, os.path.basename(filepath), os.path.dirname(filepath), show_indexes=True)
 
 
 def reset(request):
@@ -25,7 +24,7 @@ def reset(request):
 
 
 def report_coverage():
-    # cov.html_report()
+    cov.html_report()
     cov.json_report()
 
 
