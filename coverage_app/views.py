@@ -9,10 +9,11 @@ import os
 filepath = 'coverage_app/coverage_data/htmlcov/'
 
 def index(request):
+    cov.html_report()
     return serve(request, os.path.basename(filepath + '/index.html'), os.path.dirname(filepath), show_indexes=True)
 
 def object(request):
-    report_coverage()
+    cov.json_report()
     return JsonResponse(read_json('coverage_app/coverage_data/coverage.json'))
 
 
