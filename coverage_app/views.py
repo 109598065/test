@@ -5,10 +5,14 @@ from django.http import HttpResponse
 from django.http import JsonResponse
 from django.shortcuts import redirect
 
+from django.views.static import serve
+import os
+filepath = 'coverage_app/coverage_data/htmlcov/'
+
 
 def index(request):
     cov.html_report()
-    return redirect('index.html')
+    return serve(request, os.path.basename(filepath + '/index.html'), os.path.dirname(filepath))
 
 
 def object(request):
@@ -23,9 +27,9 @@ def reset(request):
     return JsonResponse({'ok': True})
 
 
-def report_coverage():
-    cov.html_report()
-    cov.json_report()
+# def report_coverage():
+#     cov.html_report()
+#     cov.json_report()
 
 
 def read_json(path):
