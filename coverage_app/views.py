@@ -3,14 +3,13 @@ import coverage
 from wagtail_test.wsgi import cov
 from django.http import HttpResponse
 from django.http import JsonResponse
+from django.shortcuts import redirect
 
-from django.views.static import serve
-import os
-filepath = 'coverage_app/coverage_data/htmlcov/'
 
 def index(request):
     cov.html_report()
-    return serve(request, os.path.basename(filepath + '/index.html'), os.path.dirname(filepath), show_indexes=True)
+    return redirect('index.html')
+
 
 def object(request):
     cov.json_report()
