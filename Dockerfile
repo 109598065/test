@@ -46,7 +46,9 @@ COPY --chown=wagtail:wagtail . .
 USER wagtail
 
 # Collect static files.
-RUN python manage.py collectstatic --noinput --clear
+RUN python manage.py collectstatic --noinput --clear; \
+    python manage.py migrate --noinput; \
+    echo "from django.contrib.auth import get_user_model; User = get_user_model(); User.objects.create_superuser('test', 'test@test.com', 'test')" | python manage.py shell;
 
 # Runtime command that executes when "docker run" is called, it does the
 # following:
@@ -58,4 +60,4 @@ RUN python manage.py collectstatic --noinput --clear
 #   phase facilities of your hosting platform. This is used only so the
 #   Wagtail instance can be started with a simple "docker run" command.
 # CMD set -xe; python manage.py migrate --noinput; gunicorn wagtail_test.wsgi:application
-CMD set -xe; python manage.py migrate --noinput; echo "from django.contrib.auth import get_user_model; User = get_user_model(); User.objects.create_superuser('admin', 'admin@myproject.com', 'password')" | python manage.py shell; python manage.py runserver 0.0.0.0:8000
+CMD set -xe;  python manage.py runserver 0.0.0.0:8000
