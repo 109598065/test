@@ -1,6 +1,11 @@
 # wagtail
 ## Docker 指令
 ```bash
+docker build -t {Image name} .
+docker run -dp {Port}:8000 {Image name}
+```
+例子
+```bash
 docker build -t wagtail .
 docker run -dp 3000:8000 wagtail
 ```
@@ -20,6 +25,7 @@ docker run -dp 3000:8000 wagtail
     - Coverage 重置頁面
 ## 目前修改檔案
 - wagtail_test/wsgi.py
+- wagtail_test/urls.py
 - coverage_app/url.py
 - coverage_app/views.py
 - coverage_app/coverage_data/.coveragerc
