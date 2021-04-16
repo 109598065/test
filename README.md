@@ -19,7 +19,7 @@ docker run -dp 3000:8000 wagtail
 - http://localhost:3000/coverage-app/reset
     - Coverage 重置頁面
 ## 目前修改檔案
-- myproject/wsgi.py
+- wagtail_test/wsgi.py
 - coverage_app/url.py
 - coverage_app/views.py
 - coverage_app/coverage_data/.coveragerc
