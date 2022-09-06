@@ -1,8 +1,8 @@
-# wagtail
- 
+# Wagtail
+## 簡介
+[Wagtail](https://github.com/wagtail/wagtail) 加上 code coverage 功能
+
 ## 介面
-### 網站
-![image](https://user-images.githubusercontent.com/71369246/187611248-47f712bb-d718-42f2-bdd1-cc8e0b720de4.png)
 ### 覆蓋率
 ![image](https://user-images.githubusercontent.com/71369246/187611114-0afd1535-3e4a-48c2-b369-c1ec8d195973.png)
 
